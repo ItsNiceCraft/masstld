@@ -7,6 +7,7 @@ from utils.md_generator import generate_markdown
 from utils.json_generator import generate_json
 from utils.get_variations import get_variations
 from utils.check_domains import check_domains
+from utils.list_downloader import download_tld_list
 from rich import print
 from rich.panel import Panel
 from json import dump
@@ -68,12 +69,11 @@ def main():
         with open(args.tld_list, "r", encoding="utf8") as f:
             tlds_raw = f.readlines()
     else:
-        with open(
-            "lists/public_suffix_list.dat" if args.use_psl else "lists/tlds.txt",
-            "r",
-            encoding="utf8",
-        ) as f:
-            tlds_raw = f.readlines()
+        tlds_raw = download_tld_list(
+            "https://publicsuffix.org/list/public_suffix_list.dat"
+            if args.use_psl
+            else "https://data.iana.org/TLD/tlds-alpha-by-domain.txt"
+        )
 
     tlds = []
 
