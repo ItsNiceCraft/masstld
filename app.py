@@ -31,7 +31,7 @@ parser.add_argument(
     "-l",
     "--tld-list",
     type=str,
-    help="Path to the custom TLD list",
+    help="URL or path to the custom tld list file. TLDs must be seperated by newlines",
 )
 parser.add_argument(
     "-psl",
@@ -66,8 +66,12 @@ dns.resolver.default_resolver.nameservers = resolvers
 
 def main():
     if args.tld_list:
-        with open(args.tld_list, "r", encoding="utf8") as f:
-            tlds_raw = f.readlines()
+
+        if args.tld_list.startswith("http://") or args.tld_list.startswith("https://"):
+            tlds_raw = download_tld_list(args.tld_list)
+        else:
+            with open(args.tld_list, "r", encoding="utf8") as f:
+                tlds_raw = f.readlines()
     else:
         tlds_raw = download_tld_list(
             "https://publicsuffix.org/list/public_suffix_list.dat"
