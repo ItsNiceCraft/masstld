@@ -2,7 +2,7 @@ import dns.resolver
 from rich import print
 
 
-def check_domains(domains: list, resolvers: list = ["9.9.9.9"]):
+def check_domains(domains: list, resolvers: list):
 
     dns.resolver.default_resolver = dns.resolver.Resolver(configure=False)
 

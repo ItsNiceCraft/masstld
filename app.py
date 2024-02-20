@@ -93,16 +93,18 @@ def main():
 
     print(
         Panel(
-            f"Checking domain {args.domain} against {len(tlds)} TLDs.\nResolver: {', '.join(resolvers)}",
+            f"Checking domain {args.domain} against {len(tlds)} TLDs",
             title="masstld",
             border_style="blue",
         )
     )
 
+    resolvers = args.resolvers or ["9.9.9.9"]  # https://quad9.net
+
     domains_to_check = list(get_variations(tlds, args.domain))
 
     available_domains, unavailable_domains, unknown_domains = check_domains(
-        domains_to_check, args.resolvers
+        domains_to_check, resolvers
     )
 
     print(
