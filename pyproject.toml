@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "masstld"
-version = "0.10.0"
+version = "0.10.1"
 description = ""
 authors = ["ItsNiceCraft <74358857+ItsNiceCraft@users.noreply.github.com>"]
 readme = "README.md"
