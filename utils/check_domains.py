@@ -1,8 +1,13 @@
-import dns
+import dns.resolver
 from rich import print
 
 
-def check_domains(domains: list):
+def check_domains(domains: list, resolvers: list = ["9.9.9.9"]):
+
+    dns.resolver.default_resolver = dns.resolver.Resolver(configure=False)
+
+    dns.resolver.default_resolver.nameservers = resolvers
+
     available_domains = []
     unavailable_domains = []
     unknown_domains = []

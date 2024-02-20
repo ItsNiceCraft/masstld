@@ -57,17 +57,13 @@ parser.add_argument(
 )
 args = parser.parse_args()
 
-dns.resolver.default_resolver = dns.resolver.Resolver(configure=False)
-
-resolvers = args.resolvers or ["9.9.9.9"]  # https://quad9.net
-
-dns.resolver.default_resolver.nameservers = resolvers
-
 
 def main():
     if args.tld_list:
 
-        if args.tld_list.startswith("http://") or args.tld_list.startswith("https://"):
+        if args.tld_list.startswith("http://") or args.tld_list.startswith(
+            "https://"
+        ):  # todo: improve url detecting logic
             tlds_raw = download_tld_list(args.tld_list)
         else:
             with open(args.tld_list, "r", encoding="utf8") as f:
@@ -106,7 +102,7 @@ def main():
     domains_to_check = list(get_variations(tlds, args.domain))
 
     available_domains, unavailable_domains, unknown_domains = check_domains(
-        domains_to_check
+        domains_to_check, args.resolvers
     )
 
     print(
