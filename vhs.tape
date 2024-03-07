@@ -10,4 +10,4 @@ Sleep 300ms
 
 Enter
 
-Sleep 5s
+Sleep 15s
