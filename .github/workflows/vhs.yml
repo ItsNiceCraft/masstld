@@ -1,0 +1,27 @@
+name: vhs
+on:
+  push:
+    paths:
+      - vhs.tape
+  workflow_dispatch:
+
+jobs:
+  vhs:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+            python-version: "3.12"
+      - uses: Gr1N/setup-poetry@v8
+      - run: poetry install
+      - uses: charmbracelet/vhs-action@v1
+        with:
+          path: 'vhs.tape'
+      - uses: stefanzweifel/git-auto-commit-action@v5
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          commit_message: "docs: update generated vhs gif"
+          branch: main
+          file_pattern: "img/demo.gif"
