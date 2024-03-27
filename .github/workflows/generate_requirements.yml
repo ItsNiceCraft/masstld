@@ -1,0 +1,25 @@
+name: Generate requirements.txt
+
+on:
+    push:
+        paths:
+          - pyproject.toml
+    workflow_dispatch:
+
+jobs:
+    generate:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v4
+            - uses: actions/setup-python@v5
+              with:
+                python-version: "3.12"
+            - uses: Gr1N/setup-poetry@v8
+            - run: poetry export -f requirements.txt --output requirements.txt --without-hashes
+            - uses: stefanzweifel/git-auto-commit-action@v5
+              env:
+                GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+              with:
+                commit_message: "chore: update generated requirements.txt"
+                branch: main
+                file_pattern: "requirements.txt"
