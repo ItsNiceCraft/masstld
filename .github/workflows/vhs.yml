@@ -1,6 +1,7 @@
 name: vhs
 on:
   push:
+    branches: [main]
     paths:
       - vhs.tape
   workflow_dispatch:
