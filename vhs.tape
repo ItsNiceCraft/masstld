@@ -6,8 +6,8 @@ Set Height 600
 
 Type "python3 app.py masstld --count 5 --tld-list https://repo.itsnicecraft.ovh/misc/tlds.txt"
 
-Sleep 300ms
+Sleep 500ms
 
 Enter
 
-Sleep 15s
+Sleep 5s
