@@ -1,4 +1,3 @@
-import dns.resolver
 from random import choice
 from string import ascii_lowercase, ascii_letters
 from time import time
