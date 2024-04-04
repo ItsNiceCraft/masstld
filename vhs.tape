@@ -3,6 +3,7 @@ Output img/demo.gif
 Set FontSize 30
 Set Width 1200
 Set Height 600
+Set Theme "Dracula"
 
 Type "python3 masstld.py itsnicecraft --count 5 --tld-list https://repo.itsnicecraft.ovh/masstld/demo.txt"
 
