@@ -1,6 +1,6 @@
 from mdutils.mdutils import MdUtils
 from itertools import zip_longest
-import datetime
+from datetime import datetime as dt
 
 
 def generate_markdown(
@@ -15,7 +15,7 @@ def generate_markdown(
         title=f"[masstld](https://github.com/ItsNiceCraft/masstld) results for {domain}",
     )
 
-    mdFile.new_line(f"Generated on {datetime.today().strftime('%Y-%m-%d %H:%M:%S')}")
+    mdFile.new_line(f"Generated on {dt.today().strftime('%Y-%m-%d %H:%M:%S')}")
 
     headers = ["Available", "Unavailable", "Unknown"]
 
