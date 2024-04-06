@@ -1,5 +1,7 @@
 # masstld
 
+<img alt="python" height="56" src="https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/cozy/built-with/python_vector.svg">
+
 masstld is a command line utility that searches for available domain names using a list of TLDs.
 
 ![masstld demo](img/demo.gif)
