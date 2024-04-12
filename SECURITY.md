@@ -9,4 +9,4 @@
 
 ## Reporting a Vulnerability
 
-To report a vulnerability in private, email me at itsnicecraft@protonmail.com
+Report security vulnerabilities in private using [GitHub advisories](https://github.com/ItsNiceCraft/masstld/security/advisories/new).
