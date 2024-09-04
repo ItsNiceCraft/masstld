@@ -24,7 +24,7 @@ parser.add_argument(
     "-r",
     "--resolvers",
     action="append",
-    help="Specify resolvers to use. Example: -r 1.1.1.1 -r 9.9.9.9",
+    help="Specify resolvers to use. Example: -r 1.1.1.1 -r 9.9.9.10",
 )
 parser.add_argument(
     "-l",
@@ -98,7 +98,9 @@ def main():
         )
     )
 
-    resolvers = args.resolvers or ["9.9.9.9"]  # https://quad9.net
+    resolvers = args.resolvers or [
+        "9.9.9.10"
+    ]  # https://quad9.net (no malware blocking)
 
     domains_to_check = list(get_variations(tlds, args.domain))
 
