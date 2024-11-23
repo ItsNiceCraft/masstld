@@ -37,20 +37,22 @@ poetry install
 > Detailed documentation for every option is planned
 
 ```
-usage: masstld.py [-h] [-c COUNT] [-r RESOLVERS] [-l TLD_LIST] [-psl] [--export-markdown EXPORT_MARKDOWN] [--export-json EXPORT_JSON] [-u] domain
+usage: masstld.py [-h] [-c COUNT] [-r RESOLVERS] [-l TLD_LIST] [-psl] [--only-cctlds] [--export-markdown EXPORT_MARKDOWN]
+                  [--export-json EXPORT_JSON] [-u]
+                  domain
 
 positional arguments:
   domain                The domain name to check TLDs for
 
 options:
   -h, --help            show this help message and exit
-  -c COUNT, --count COUNT
-                        Amount of TLDs to check
-  -r RESOLVERS, --resolvers RESOLVERS
-                        Specify resolvers to use. Example: -r 1.1.1.1 -r 9.9.9.9
-  -l TLD_LIST, --tld-list TLD_LIST
+  -c, --count COUNT     Amount of TLDs to check
+  -r, --resolvers RESOLVERS
+                        Specify resolvers to use. Example: -r 1.1.1.1 -r 9.9.9.10
+  -l, --tld-list TLD_LIST
                         URL or path to the custom tld list file. TLDs must be seperated by newlines
   -psl, --use-psl       Use the Public Suffix List as the TLD list. Can't be used when a custom TLD list is used
+  --only-cctlds         Only check country code TLDs (ccTLDs)
   --export-markdown EXPORT_MARKDOWN
                         Export results to a specified markdown file
   --export-json EXPORT_JSON

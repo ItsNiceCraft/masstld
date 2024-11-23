@@ -39,6 +39,11 @@ parser.add_argument(
     help="Use the Public Suffix List as the TLD list. Can't be used when a custom TLD list is used",
 )
 parser.add_argument(
+    "--only-cctlds",
+    action="store_true",
+    help="Only check country code TLDs (ccTLDs)",
+)
+parser.add_argument(
     "--export-markdown",
     type=str,
     help="Export results to a specified markdown file",
@@ -86,6 +91,8 @@ def main():
         if tld == "":
             continue
         elif tld.startswith("//") or tld.startswith("#"):
+            continue
+        elif args.only_cctlds and len(tld) != 2:
             continue
         else:
             tlds.append(tld)
