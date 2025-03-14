@@ -9,4 +9,4 @@
 
 ## Reporting a Vulnerability
 
-Report security vulnerabilities in private using [GitHub advisories](https://github.com/ItsNiceCraft/masstld/security/advisories/new).
+Report security vulnerabilities privately using [GitHub advisories](https://github.com/ItsNiceCraft/masstld/security/advisories/new).
