@@ -189,13 +189,14 @@ files = [
 
 [[package]]
 name = "mdutils"
-version = "1.7.0"
+version = "1.8.0"
 description = "Useful package for creating Markdown files while executing python code."
 optional = false
 python-versions = "*"
 groups = ["main"]
 files = [
-    {file = "mdutils-1.7.0.tar.gz", hash = "sha256:e1b61cbb053eeb9b694579ea1c5bb9c366d0f1f5d692f63d0c171ec5bf855be7"},
+    {file = "mdutils-1.8.0-py3-none-any.whl", hash = "sha256:0d3cf9af4a958f3bbd184c1097985bb1d1f9489887e1f7329942ada14359c7ba"},
+    {file = "mdutils-1.8.0.tar.gz", hash = "sha256:091b605b4b550465a304f1c66d37647b6008b4a19e7b5154a7d39a148e903f6d"},
 ]
 
 [[package]]
